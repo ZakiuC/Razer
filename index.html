@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>雷蛇</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+<div class="container">
+    <h1>雷蛇</h1>
+    
+    <details>
+        <summary>玩法说明</summary>
+        <div class="rules-popup">
+            <div class="rule-row">
+                <span style="color: #4ade80;">🐍 贪吃蛇吃食</span>
+                <span>随机揭开 3x3 扫雷区域</span>
+            </div>
+            <div class="rule-row">
+                <span style="color: #fbbf24;">🚩 扫雷标雷</span>
+                <span>蛇身+1 & 获得3秒无敌</span>
+            </div>
+            <div class="rule-row">
+                <span style="color: #60a5fa;">💣 扫雷连开</span>
+                <span>一次揭开5格以上，蛇身+1</span>
+            </div>
+            <div class="rule-row">
+                <span style="color: #c084fc;">✨ 扫雷清盘</span>
+                <span>奖励50分 & 刷新雷区</span>
+            </div>
+        </div>
+    </details>
+
+    <div class="total-score-display" style="font-size: 2rem; font-weight: bold; margin-bottom: 1.5rem; color: #fde047;">
+        总分: <span id="total-score">0</span>
+    </div>
+
+    <div class="game-container">
+        <!-- Snake Panel -->
+        <div class="panel">
+            <div class="panel-header">
+                <!-- Removed individual score -->
+            </div>
+            <div id="snake-feedback" class="feedback snake"></div>
+            <div class="board-container">
+                <div id="snake-board"></div>
+                <div id="snake-overlay" class="overlay">
+                    <h3>游戏结束</h3>
+                </div>
+            </div>
+            <p style="margin-top: 10px; color: #e9d5ff; font-size: 0.9rem;">方向键 / WASD 控制移动</p>
+        </div>
+
+        <!-- Minesweeper Panel -->
+        <div class="panel">
+            <div class="panel-header">
+                <!-- Removed individual score -->
+            </div>
+            <div id="mine-feedback" class="feedback mine"></div>
+            <div class="board-container">
+                <div id="mine-board"></div>
+                <div id="mine-overlay" class="overlay">
+                    <h3>游戏结束</h3>
+                </div>
+            </div>
+            <p style="margin-top: 10px; color: #e9d5ff; font-size: 0.9rem;">左键揭开 | 右键标雷</p>
+        </div>
+    </div>
+</div>
+
+<div id="game-over-modal" class="game-over-modal">
+    <h2 style="font-size: 2rem; margin-bottom: 1rem;">💀 游戏结束 💀</h2>
+    <p id="death-reason" style="color: #fca5a5; font-size: 1.2rem; margin-bottom: 1.5rem;"></p>
+    <div style="display: flex; gap: 2rem; justify-content: center; margin-bottom: 1.5rem;">
+        <div>
+            <div style="color: #d8b4fe; font-size: 0.9rem;">贪吃蛇得分</div>
+            <div id="final-snake-score" style="font-size: 1.5rem; font-weight: bold;">0</div>
+        </div>
+        <div>
+            <div style="color: #d8b4fe; font-size: 0.9rem;">扫雷得分</div>
+            <div id="final-mine-score" style="font-size: 1.5rem; font-weight: bold;">0</div>
+        </div>
+        <div>
+            <div style="color: #d8b4fe; font-size: 0.9rem;">总分</div>
+            <div id="final-total-score" style="font-size: 1.5rem; font-weight: bold; color: #fde047;">0</div>
+        </div>
+    </div>
+    <button class="btn" onclick="game.restart()">🔄 重新开始</button>
+</div>
+
+<script src="game.js"></script>
+</body>
+</html>

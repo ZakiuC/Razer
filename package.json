@@ -1,0 +1,12 @@
+{
+  "name": "snake-minesweeper-hybrid",
+  "version": "1.0.0",
+  "main": "index.html",
+  "window": {
+    "title": "雷蛇",
+    "width": 1024,
+    "height": 768,
+    "resizable": true,
+    "position": "center"
+  }
+}
